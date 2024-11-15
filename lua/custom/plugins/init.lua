@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  --  42-header plugin
   {
     'Diogo-ss/42-header.nvim',
     cmd = { 'Stdheader' },
@@ -17,63 +18,7 @@ return {
       require('42header').setup(opts)
     end,
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-    config = function()
-      vim.opt.termguicolors = true
-      vim.api.nvim_set_keymap('n', '<C-n>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
-      require('nvim-tree').setup {
-        view = {
-          width = 30,
-          side = 'left',
-        },
-        git = {
-          enable = true,
-          ignore = false,
-          timeout = 500,
-        },
-        renderer = {
-          highlight_git = true,
-          group_empty = true,
-          icons = {
-            show = {
-              git = true,
-            },
-            glyphs = {
-              default = '→',
-              symlink = '⤴',
-              git = {
-                unstaged = '✗',
-                staged = '✓',
-                unmerged = '≠',
-                renamed = '➜',
-                untracked = '★',
-                deleted = '🗑',
-                ignored = '◌',
-              },
-              folder = {
-                arrow_open = '▾',
-                arrow_closed = '▸',
-                default = '📁',
-                open = '📂',
-                empty = '🗃',
-                empty_open = '🗃',
-                symlink = '🔗',
-                symlink_open = '🔗',
-              },
-            },
-          },
-        },
-        filters = {
-          dotfiles = true,
-        },
-      }
-    end,
-  },
+  --  norminette plugin
   {
     'hardyrafael17/norminette42.nvim',
     config = function()
